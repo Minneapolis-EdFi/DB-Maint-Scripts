@@ -93,6 +93,10 @@ if ($OldDbOnPrimary.FileGroups[0] -eq $null)
 }
 LogMsg("Yes. Proceeding.")
 
+LogMsg("Finding the new database name, one that starts with EdFi_Dashboard_temp ...")
+$TempDashboardDbName = (Get-SqlDatabase -ServerInstance "$PrimaryNodeAddress" -Credential $WSCreds | select-object -Property "Name" | where-object Name -Match $TempDashboardDbName  | select-object -First 1).Name
+
+
 LogMsg("Check #3 - does the new database also exist?")
 $NewDbOnPrimary = Get-SqlDatabase -Name "$TempDashboardDbName" -ServerInstance "$PrimaryNodeAddress" -Credential $WSCreds
 if ($NewDbOnPrimary -eq $null)
