@@ -7,7 +7,7 @@ Set-Location c:\
 $PermDashboardDbName = 'EdFi_Dashboard'
 $TempDashboardDbName = "$($PermDashboardDbName)_temp"
 $DroppableDashboardDbName = "$($PermDashboardDbName)_Old"
-$LogFilePath = 'D:\AutomatedBackup.log'
+$LogFilePath = 'D:\NightlyJobLogs\AutomatedBackup.log'
 $AvGroupName = 'EdFiProdAvGroup'
 
 $Secvals = Get-SECSecretValue -SecretId edfi-prod-pw-list

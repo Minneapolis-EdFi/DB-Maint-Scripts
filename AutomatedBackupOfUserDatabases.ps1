@@ -4,7 +4,7 @@ Import-Module “sqlps” -DisableNameChecking
 Import-Module FailoverClusters
 Set-Location c:\
 
-$LogFilePath = 'D:\AutomatedBackup.log'
+$LogFilePath = 'D:\NightlyJobLogs\AutomatedBackup.log'
 $AvGroupName = 'EdFiProdAvGroup'
 
 $Secvals = Get-SECSecretValue -SecretId edfi-prod-pw-list
