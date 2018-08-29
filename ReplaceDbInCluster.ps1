@@ -7,7 +7,7 @@ Set-Location c:\
 $PermDashboardDbName = 'EdFi_Dashboard'
 $TempDashboardDbName = "$($PermDashboardDbName)_temp"
 $DroppableDashboardDbName = "$($PermDashboardDbName)_Old"
-$LogFilePath = 'D:\NightlyJobLogs\AutomatedBackup.log'
+$LogFilePath = 'D:\MSSQL\SqlAgentJobScripts\AutomatedBackup.log'
 $AvGroupName = 'EdFiProdAvGroup'
 
 $Secvals = Get-SECSecretValue -SecretId edfi-prod-pw-list
@@ -79,7 +79,7 @@ net use m: "\\$SecondaryNodeAddress\MSSQL" /user:webserver $BackupSharePw /persi
 LogMsg("Now prepped for file copy between shares")
 
 LogMsg("Check #2 - does the database to replace exist?")
-Set-Location $PrimarySqlNodePath
+#Set-Location $PrimarySqlNodePath
 $OldDbOnPrimary = Get-SqlDatabase -Name "$PermDashboardDbName" -ServerInstance "$PrimaryNodeAddress" -Credential $WSCreds 
 if ($OldDbOnPrimary -eq $null)
 {
